@@ -1,20 +1,27 @@
-import logo from './logo.svg';
+import Product from './Product/Product';
 import './App.css';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <spam>
-          Nombre
-        </spam>
-        <spam>
-          Apellido
-        </spam>
-      </header>
-    </div>
+	<div className="">
+		<Product />
+	</div>
   );
 }
 
 export default App;
+
+
+        // <span>
+        //   Nombre:
+        // </span>
+	// <span>
+        //   Fernando
+        // </span>
+        // <span>
+        //   Apellido:
+        // </span>
+	// <span>
+        //   Toledo
+        // </span>
