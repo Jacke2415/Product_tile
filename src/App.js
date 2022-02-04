@@ -1,12 +1,16 @@
-import Product from './Product/Product';
-import './App.css';
+import ProductTile from './components/ProductTile';
+import "bootstrap/dist/css/bootstrap.css";
+import BubbleB from 'bubble-b';
 
 function App() {
 
   return (
-	<div className="">
-		<Product />
-	</div>
+    <div className="App">
+      <header className="App-header">
+        <BubbleB bubblesNum={20} />
+        <ProductTile />
+      </header>
+    </div>
   );
 }
 
