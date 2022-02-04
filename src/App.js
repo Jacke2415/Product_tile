@@ -1,17 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import ProductTile from './components/ProductTile';
+import "bootstrap/dist/css/bootstrap.css";
+import BubbleB from 'bubble-b';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <spam>
-          Nombre
-        </spam>
-        <spam>
-          Apellido
-        </spam>
+        <BubbleB bubblesNum={20} />
+        <ProductTile />
       </header>
     </div>
   );
