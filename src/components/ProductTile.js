@@ -1,7 +1,15 @@
 
-
+import { useState } from "react";
 // productName, ProdDesc, productImage
 const ProductTile = (props) => {
+
+	const [count, setCount] = useState(0)
+
+	const decrease = () => {
+		if (count > 0) {
+			setCount(count - 1)
+		}
+	}
 
 	return (
 		<>
@@ -14,7 +22,7 @@ const ProductTile = (props) => {
 						width="300"
 					/>
 				</div>
-				<div className="d-inline-flex flex-column bg-danger bg-opacity-50">					
+				<div className="d-inline-flex flex-column bg-info bg-opacity-50">
 					<div>
 						<p></p>
 						<span className="fw-bold mt-3 mb-3">Laptop HP</span>
@@ -32,9 +40,9 @@ const ProductTile = (props) => {
 							<button className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">COP 2.743.897</button>
 						</div>
 						<div className="p-2 bd-highlight">
-							<button className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">0</button>
-							<button className="btn btn-outline-light mt-3 text-black border-2 rounded-3">-</button>
-							<button className="btn btn-outline-light mt-3 text-black border-2 rounded-3">+</button>
+							<button className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{count}</button>
+							<button className="btn btn-outline-light mt-3 text-black border-2 rounded-3" onClick={ decrease }>-</button>
+							<button className="btn btn-outline-light mt-3 text-black border-2 rounded-3" onClick={() => setCount(count + 1)}>+</button>
 						</div>
 					</div>
 				</div>
