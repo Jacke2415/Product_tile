@@ -9,8 +9,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <BubbleB bubblesNum={20} />
-
+        <BubbleB bubblesNum={30} />
         <ClothProductTile  />
 	<ToysProductTile />
       </header>
