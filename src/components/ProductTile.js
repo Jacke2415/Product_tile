@@ -14,15 +14,15 @@ const ProductTile = (props) => {
 	return (
 		<>
 			<main className="text-center mt-5 position-relative">
-				<div className="d-flex flex-column align-items-center text-center">
-					<img
-						className="img-fluid mb-5 text-center position relative"
-						src="https://m.media-amazon.com/images/I/81YRfW97J1L._AC_UY327_FMwebp_QL65_.jpg"
-						alt=""
-						width="300"
-					/>
-				</div>
 				<div className="d-inline-flex flex-column bg-info bg-opacity-50">
+					<div className="d-flex flex-column align-items-center text-center">
+						<img
+							className="img-fluid mb-5 text-center position relative"
+							src="https://m.media-amazon.com/images/I/81YRfW97J1L._AC_UY327_FMwebp_QL65_.jpg"
+							alt=""
+							width="400"
+						/>
+					</div>
 					<div>
 						<p></p>
 						<span className="fw-bold mt-3 mb-3">Laptop HP</span>
@@ -41,7 +41,7 @@ const ProductTile = (props) => {
 						</div>
 						<div className="p-2 bd-highlight">
 							<button className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{count}</button>
-							<button className="btn btn-outline-light mt-3 text-black border-2 rounded-3" onClick={ decrease }>-</button>
+							<button className="btn btn-outline-light mt-3 text-black border-2 rounded-3" onClick={decrease}>-</button>
 							<button className="btn btn-outline-light mt-3 text-black border-2 rounded-3" onClick={() => setCount(count + 1)}>+</button>
 						</div>
 					</div>
