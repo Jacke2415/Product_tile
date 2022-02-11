@@ -1,9 +1,12 @@
-
+import { Link } from "react-router-dom";
 import { useState } from "react";
 // productName, ProdDesc, productImage
 const ProductTile = (props) => {
 
-	const [count, setCount] = useState(0)
+	let description = '2022 HP Pavilion 17.3-inch IPS FHD Laptop, Intel Quad Core i5-1135G7 (Beats i7-1065G7,upto 4.2GHz), Iris Xe Graphics, 16GB RAM, 512GB PCIe SSD, Backlit Keyboard, WiFi 5,Webcam, Windows 11+HubxcelCables Anim occaecat sunt in labore incididunt pariatur aliqua eiusmod consequat fugiat nisi aute non esse.'.slice(0, 200);
+
+	const [count, setCount] = useState(0);
+
 
 	const decrease = () => {
 		if (count > 0) {
@@ -13,43 +16,31 @@ const ProductTile = (props) => {
 
 	return (
 		<>
-			<main className="text-center mt-5 position-relative">
-				<div className="d-inline-flex flex-column bg-info bg-opacity-50">
-					<div className="d-flex flex-column align-items-center text-center">
-						<img
-							className="img-fluid mb-5 text-center position relative"
-							src="https://m.media-amazon.com/images/I/81YRfW97J1L._AC_UY327_FMwebp_QL65_.jpg"
-							alt=""
-							width="400"
-						/>
-					</div>
-					<div>
-						<p></p>
-						<span className="fw-bold mt-3 mb-3">Laptop HP</span>
-					</div>
-
-					<div className="mt-3">
-						<p>2022 HP Pavilion 17.3-inch IPS FHD Laptop,</p>
-						<p>Intel Quad Core i5-1135G7 (Beats i7-1065G7,upto 4.2GHz),</p>
-						<p>Iris Xe Graphics, 16GB RAM, 512GB PCIe SSD, Backlit Keyboard,</p>
-						<p> WiFi 5,Webcam, Windows 11+HubxcelCables</p>
-					</div>
+			<div className="card d-flex bd-highlight mb-3" style={{ width: '25rem', height: '45rem' }}>
+				<img
+					className='card-img-top'
+					src="https://m.media-amazon.com/images/I/81YRfW97J1L._AC_UY327_FMwebp_QL65_.jpg"
+					alt=""
+					width="400"
+				/>
+				<div className="card-body bg-info bg-opacity-50">
+					<h5 className="card-title">Laptop HP</h5>
+					<p className="card-text text-align-justify">{description + '...'}</p>
+					{/* <Link to='https://pluralsight.com'>View more</Link> */}
 					{props.children}
 					<div className="d-flex bd-highlight mb-3">
 						<div className="me-auto p-2 bd-highlight">
-							<button className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">COP 2.743.897</button>
+							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">COP 2.743.897</span>
 						</div>
 						<div className="p-2 bd-highlight">
-							<button className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{count}</button>
+							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{count}</span>
 							<button className="btn btn-outline-light mt-3 text-black border-2 rounded-3" onClick={decrease}>-</button>
 							<button className="btn btn-outline-light mt-3 text-black border-2 rounded-3" onClick={() => setCount(count + 1)}>+</button>
 						</div>
 					</div>
 				</div>
-			</main>
+			</div>
 		</>
 	);
-
 }
-
 export default ProductTile;

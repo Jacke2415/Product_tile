@@ -4,14 +4,16 @@ import BubbleB from 'bubble-b';
 import HOrderComponent from './components/HOrderComponent';
 
 function App() {
-	const ClothProductTile = HOrderComponent(ProductTile, true, {productSize: [], props: ''});
-	const ToysProductTile = HOrderComponent(ProductTile, false, {});
+  const ClothProductTile = HOrderComponent(ProductTile, true, { productSize: [], props: '' });
+  const ToysProductTile = HOrderComponent(ProductTile, false, {});
   return (
     <div className="App">
       <header className="App-header">
         <BubbleB bubblesNum={30} />
-        <ClothProductTile  />
-	<ToysProductTile />
+        <div className='d-flex d-row gap-5 p-5'>
+        <ClothProductTile />
+        <ToysProductTile />
+        </div>
       </header>
     </div>
   );
