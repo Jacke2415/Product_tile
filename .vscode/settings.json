@@ -1,0 +1,54 @@
+{
+	"editor.tabSize": 8,
+	"editor.detectIndentation": false,
+	"editor.autoIndent": "advanced",
+	"editor.insertSpaces": false,
+	"editor.wrappingIndent": "deepIndent",
+	"workbench.colorTheme": "Abyss",
+	"colorize.languages": [
+	
+		"css",
+		"sass",
+		"scss",
+		"less",
+		"postcss",
+		"sss",
+		"stylus",
+		"xml",
+		"svg",
+		"typescript"
+	],
+	"colorInfo.languages": [
+		{
+			"selector": "css",
+			"colors": "css"
+		},
+		{
+			"selector": "sass",
+			"colors": "css"
+		},
+		{
+			"selector": "scss",
+			"colors": "css"
+		},
+		{
+			"selector": "less",
+			"colors": "css"
+		},
+		{
+			"selector": "html",
+			"colors": "css"
+		},
+		{
+			"selector": "javascript",
+			"colors": "css"
+		},
+		{
+			"selector": "typescript",
+			"colors": "css"
+		}
+	],
+	"editor.bracketPairColorization.enabled": true,
+	"editor.guides.bracketPairs": "active",
+	
+}

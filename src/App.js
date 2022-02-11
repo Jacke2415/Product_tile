@@ -21,6 +21,12 @@ function App() {
 
 export default App;
 
+// header.App-header main {
+//     width: 25rem;
+//     margin: 0 2rem !important;
+//     float: left;
+// }
+
 
         // <span>
         //   Nombre:
