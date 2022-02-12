@@ -17,12 +17,12 @@ export const HOrderComponent = (WrappedComponent, usesSize, data) => {
 				<>
 					{ usesSize ? 
 						<WrappedComponent 
-						data={this.state.data }
+						description={this.state.data.description }
 						{...this.props }>
 							<SizeSelector />
 						</WrappedComponent> 
 					: <WrappedComponent 
-						data={this.state.data}
+						description={this.state.data.description}
 						{...this.props} />
 					}
 				</>

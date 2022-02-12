@@ -1,12 +1,16 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+// import { Link } from "react-router-dom";
+import { Component, useEffect, useState } from "react";
 // productName, ProdDesc, productImage
+
 const ProductTile = (props) => {
 
-	let description = '2022 HP Pavilion 17.3-inch IPS FHD Laptop, Intel Quad Core i5-1135G7 (Beats i7-1065G7,upto 4.2GHz), Iris Xe Graphics, 16GB RAM, 512GB PCIe SSD, Backlit Keyboard, WiFi 5,Webcam, Windows 11+HubxcelCables Anim occaecat sunt in labore incididunt pariatur aliqua eiusmod consequat fugiat nisi aute non esse.'.slice(0, 200);
-
 	const [count, setCount] = useState(0);
+	const [description, setDescription] = useState('');
 
+	useEffect(() => {
+		// After mounting!!
+		setDescription(props.description.slice(0, 200));
+	}, [props.description]);
 
 	const decrease = () => {
 		if (count > 0) {
@@ -33,14 +37,42 @@ const ProductTile = (props) => {
 							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">COP 2.743.897</span>
 						</div>
 						<div className="p-2 bd-highlight">
-							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{count}</span>
-							<button className="btn btn-outline-light mt-3 text-black border-2 rounded-3" onClick={decrease}>-</button>
-							<button className="btn btn-outline-light mt-3 text-black border-2 rounded-3" onClick={() => setCount(count + 1)}>+</button>
+							<span
+							className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{count}</span>
+							<button
+							className="btn btn-outline-light mt-3 text-black border-2 rounded-3"
+							onClick={decrease}>-</button>
+							<button
+							className="btn btn-outline-light mt-3 text-black border-2 rounded-3"
+							onClick={() => setCount(count + 1)}>+</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</>
 	);
+};
+
+
+export default class ProductTileContainer extends Component {
+
+	constructor() {
+		super();
+		this.state = {
+			desciption: ''
+		};
+	}
+
+	componentDidMount() {
+
+	}
+
+	render() {
+		return(
+			<div>
+				<span>Container</span> 
+				<ProductTile description={this.props.description} />
+			</div>
+		);
+	}
 }
-export default ProductTile;

@@ -1,22 +1,27 @@
-import ProductTile from './components/ProductTile';
+// import ProductTile from './components/ProductTile';
 import "bootstrap/dist/css/bootstrap.css";
 import BubbleB from 'bubble-b';
 import HOrderComponent from './components/HOrderComponent';
+import ProductTileContainer from './components/ProductTile';
 
 function App() {
-  const ClothProductTile = HOrderComponent(ProductTile, true, { productSize: [], props: '' });
-  const ToysProductTile = HOrderComponent(ProductTile, false, {});
-  return (
-    <div className="App">
-      <header className="App-header">
-        <BubbleB bubblesNum={30} />
-        <div className='d-flex d-row gap-5 p-5'>
-        <ClothProductTile />
-        <ToysProductTile />
-        </div>
-      </header>
-    </div>
-  );
+
+	let description = '2022 HP Pavilion 17.3-inch IPS FHD Laptop, Intel Quad Core i5-1135G7 (Beats i7-1065G7,upto 4.2GHz), Iris Xe Graphics, 16GB RAM, 512GB PCIe SSD, Backlit Keyboard, WiFi 5,Webcam, Windows 11+HubxcelCables Anim occaecat sunt in labore incididunt pariatur aliqua eiusmod consequat fugiat nisi aute non esse.';
+	let description2 = 'Tempor anim quis ullamco esse reprehenderit eiusmod elit et deserunt mollit duis.';
+
+	const ClothProductTile = HOrderComponent(ProductTileContainer, true, { productSize: [], description });
+	const ToysProductTile = HOrderComponent(ProductTileContainer, false, { description: description2 });
+	return (
+		<div className="App">
+			<header className="App-header">
+				<BubbleB bubblesNum={30} />
+				<div className='d-flex d-row gap-5 p-5'>
+					<ClothProductTile />
+					<ToysProductTile />
+				</div>
+			</header>
+		</div>
+	);
 }
 
 export default App;
