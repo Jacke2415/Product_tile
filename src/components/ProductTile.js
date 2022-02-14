@@ -6,11 +6,14 @@ const ProductTile = (props) => {
 
 	const [count, setCount] = useState(0);
 	const [description, setDescription] = useState('');
+	const [price, setPrice] = useState(0);
 
 	useEffect(() => {
 		// After mounting!!
 		setDescription(props.description.slice(0, 200));
-	}, [props.description]);
+		setPrice(props.price)
+		console.log(props.price)
+	}, [props.description, props.price]);
 
 	const decrease = () => {
 		if (count > 0) {
@@ -29,12 +32,12 @@ const ProductTile = (props) => {
 				/>
 				<div className="card-body bg-info bg-opacity-50">
 					<h5 className="card-title">Laptop HP</h5>
-					<p className="card-text text-align-justify">{description + '...'}</p>
+					<p className="card-text text-align-justify">{ description + '...' }</p>
 					{/* <Link to='https://pluralsight.com'>View more</Link> */}
 					{props.children}
 					<div className="d-flex bd-highlight mb-3">
 						<div className="me-auto p-2 bd-highlight">
-							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">COP 2.743.897</span>
+							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{ price }</span>
 						</div>
 						<div className="p-2 bd-highlight">
 							<span
@@ -59,7 +62,7 @@ export default class ProductTileContainer extends Component {
 	constructor() {
 		super();
 		this.state = {
-			desciption: ''
+			description: ''
 		};
 	}
 
@@ -71,7 +74,8 @@ export default class ProductTileContainer extends Component {
 		return(
 			<div>
 				<span>Container</span> 
-				<ProductTile description={this.props.description} />
+				<ProductTile description={this.props.description}
+				price={this.props.price} />
 			</div>
 		);
 	}
