@@ -1,4 +1,5 @@
 // import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { Component, useEffect, useState } from "react";
 // productName, ProdDesc, productImage
 
@@ -9,6 +10,7 @@ const ProductTile = (props) => {
 	const [price, setPrice] = useState(0);
 
 	useEffect(() => {
+
 		// After mounting!!
 		setDescription(props.description.slice(0, 200));
 		setPrice(props.price)
@@ -55,6 +57,11 @@ const ProductTile = (props) => {
 	);
 };
 
+ProductTile.propTypes = { 
+	children: PropTypes.any,
+	description: PropTypes.string.isRequired,
+	price: PropTypes.number.isRequired
+}; 
 
 export default class ProductTileContainer extends Component {
 
@@ -79,3 +86,9 @@ export default class ProductTileContainer extends Component {
 		);
 	}
 }
+
+// ProductTileContainer.propTypes = {
+// 	children: PropTypes.any,
+// 	description: PropTypes.string,
+// 	price: PropTypes.number
+// };

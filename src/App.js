@@ -22,7 +22,10 @@ function App() {
 				<BubbleB bubblesNum={30} />
 				<div className='d-flex d-row gap-5 p-5'>
 					<ClothProductTile />
-					<ToysProductTile />
+					{/* <ToysProductTile /> */}
+					<ProductTileContainer
+					description={description2}
+					price={price2}/>
 					{/* <ClothViewMore />
 					<ToysViewMore /> */}					
 				</div>
