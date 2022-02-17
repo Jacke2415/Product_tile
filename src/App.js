@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import BubbleB from 'bubble-b';
 import HOrderComponent from './components/HOrderComponent';
 import ProductTileContainer from './components/ProductTile';
+/* import ViewMoreContainer from "./components/ViewMore"; */
 
 function App() {
 
@@ -13,6 +14,8 @@ function App() {
 
 	const ClothProductTile = HOrderComponent(ProductTileContainer, true, { productSize: [], description, price });
 	const ToysProductTile = HOrderComponent(ProductTileContainer, false, { description: description2, price: price2 });
+	/* const ClothViewMore = HOrderComponent(ViewMoreContainer, true, { productSize: [], description, price });
+	const ToysViewMore = HOrderComponent(ViewMoreContainer, false, { description: description2, price: price2 }); */
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -20,6 +23,8 @@ function App() {
 				<div className='d-flex d-row gap-5 p-5'>
 					<ClothProductTile />
 					<ToysProductTile />
+					{/* <ClothViewMore />
+					<ToysViewMore /> */}					
 				</div>
 			</header>
 		</div>
