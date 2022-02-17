@@ -32,8 +32,7 @@ const ProductTile = (props) => {
 				/>
 				<div className="card-body bg-info bg-opacity-50">
 					<h5 className="card-title">Laptop HP</h5>
-					<p className="card-text text-align-justify">{ description + '...' }</p>
-					{/* <Link to='https://pluralsight.com'>View more</Link> */}
+					<p className="card-text text-align-justify">{ description + '...' } <a href="https://www.google.com">View more</a></p>					
 					{props.children}
 					<div className="d-flex bd-highlight mb-3">
 						<div className="me-auto p-2 bd-highlight">
