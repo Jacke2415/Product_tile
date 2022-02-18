@@ -1,8 +1,6 @@
-// import { Link } from "react-router-dom";
 import { Component, useEffect, useState } from "react";
-// productName, ProdDesc, productImage
 
-const ProductTile = (props) => {
+const ViewMore = (props) => {
 
 	const [count, setCount] = useState(0);
 	const [description, setDescription] = useState('');
@@ -10,7 +8,7 @@ const ProductTile = (props) => {
 
 	useEffect(() => {
 		// After mounting!!
-		setDescription(props.description.slice(0, 200));
+		setDescription(props.description.slice(0,100));
 		setPrice(props.price)
 		console.log(props.price)
 	}, [props.description, props.price]);
@@ -32,22 +30,30 @@ const ProductTile = (props) => {
 				/>
 				<div className="card-body bg-info bg-opacity-50">
 					<h5 className="card-title">Laptop HP</h5>
-					<p className="card-text text-align-justify">{ description + '...' } <a href="https:www.google.com">View more</a></p>					
+					<p className="card-text text-align-justify">{ description + '...' } <a href="https://www.google.com">View more</a></p>					
 					{props.children}
 					<div className="d-flex bd-highlight mb-3">
 						<div className="me-auto p-2 bd-highlight">
 							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{ price }</span>
+							
 						</div>
 						<div className="p-2 bd-highlight">
 							<span
-							className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{count}</span>
+							className="btn btn-info mt-3 disabled text-black border-2 rounded-3">{count}</span>
 							<button
 							className="btn btn-outline-light mt-3 text-black border-2 rounded-3"
 							onClick={decrease}>-</button>
 							<button
 							className="btn btn-outline-light mt-3 text-black border-2 rounded-3"
 							onClick={() => setCount(count + 1)}>+</button>
-						</div>
+						</div>						
+					</div>
+					<div className="d-flex flex-column bd-highlight mb-3">
+						<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">Total: $ {count * price}</span>
+						
+						<button
+							className="btn btn-info mt-3 text-black border-2 rounded-3">Add to Cart
+						</button>
 					</div>
 				</div>
 			</div>
@@ -56,7 +62,7 @@ const ProductTile = (props) => {
 };
 
 
-export default class ProductTileContainer extends Component {
+export default class ViewMoreContainer extends Component {
 
 	constructor() {
 		super();
@@ -73,7 +79,7 @@ export default class ProductTileContainer extends Component {
 		return(
 			<div>
 				<span>Container</span> 
-				<ProductTile description={this.props.description}
+				<ViewMore description={this.props.description}
 				price={this.props.price} />
 			</div>
 		);
