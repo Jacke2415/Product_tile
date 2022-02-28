@@ -13,7 +13,7 @@ function App() {
 	let price2 = 1326580;
 
 	const ClothProductTile = HOrderComponent(ProductTileContainer, true, { productSize: [], description, price });
-	const ToysProductTile = HOrderComponent(ProductTileContainer, false, { description: description2, price: price2 });
+	//const ToysProductTile = HOrderComponent(ProductTileContainer, false, { description: description2, price: price2 });
 	/* const ClothViewMore = HOrderComponent(ViewMoreContainer, true, { productSize: [], description, price });
 	const ToysViewMore = HOrderComponent(ViewMoreContainer, false, { description: description2, price: price2 }); */
 	return (
@@ -22,7 +22,10 @@ function App() {
 				<BubbleB bubblesNum={30} />
 				<div className='d-flex d-row gap-5 p-5'>
 					<ClothProductTile />
-					<ToysProductTile />
+					{/* <ToysProductTile /> */}
+					<ProductTileContainer
+					description={description2}
+					price={price2}/>
 					{/* <ClothViewMore />
 					<ToysViewMore /> */}					
 				</div>

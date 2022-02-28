@@ -1,12 +1,15 @@
+// import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { Component, useEffect, useState } from "react";
 
-const ViewMore = (props) => {
+const ProductTile = (props) => {
 
 	const [count, setCount] = useState(0);
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState(0);
 	
 	useEffect(() => {
+
 		// After mounting!!
 		setDescription(props.description.slice(0,100));
 		setPrice(props.price)
@@ -72,8 +75,13 @@ const ViewMore = (props) => {
 	);
 };
 
+ProductTile.propTypes = { 
+	children: PropTypes.any,
+	description: PropTypes.string.isRequired,
+	price: PropTypes.number.isRequired
+}; 
 
-export default class ViewMoreContainer extends Component {
+export default class ProductTileContainer extends Component {
 
 	constructor() {
 		super();
@@ -90,9 +98,15 @@ export default class ViewMoreContainer extends Component {
 		return(
 			<div>
 				<span>Container</span> 
-				<ViewMore description={this.props.description}
+				<ProductTile description={this.props.description}
 				price={this.props.price} />
 			</div>
 		);
 	}
 }
+
+// ProductTileContainer.propTypes = {
+// 	children: PropTypes.any,
+// 	description: PropTypes.string,
+// 	price: PropTypes.number
+// };
