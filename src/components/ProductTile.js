@@ -1,19 +1,31 @@
 // import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { Component, useEffect, useState } from "react";
-// productName, ProdDesc, productImage
 
 const ProductTile = (props) => {
 
 	const [count, setCount] = useState(0);
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState(0);
-
+	
 	useEffect(() => {
+
 		// After mounting!!
-		setDescription(props.description.slice(0, 200));
+		setDescription(props.description.slice(0,100));
 		setPrice(props.price)
 		console.log(props.price)
 	}, [props.description, props.price]);
+
+	const Modal = ({children}) => {
+		return(
+			<article className="modal is-open">
+				<div className="modal-container">
+					<button className="modal-close">X</button>
+					{children}
+				</div>
+			</article>
+		)
+	}
 
 	const decrease = () => {
 		if (count > 0) {
@@ -32,22 +44,30 @@ const ProductTile = (props) => {
 				/>
 				<div className="card-body bg-info bg-opacity-50">
 					<h5 className="card-title">Laptop HP</h5>
-					<p className="card-text text-align-justify">{ description + '...' } <a href="https:www.google.com">View more</a></p>					
+					<p className="card-text text-align-justify">{ description + '...' } {Modal}</p>					
 					{props.children}
 					<div className="d-flex bd-highlight mb-3">
 						<div className="me-auto p-2 bd-highlight">
 							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{ price }</span>
+							
 						</div>
 						<div className="p-2 bd-highlight">
 							<span
-							className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{count}</span>
+							className="btn btn-info mt-3 disabled text-black border-2 rounded-3">{count}</span>
 							<button
 							className="btn btn-outline-light mt-3 text-black border-2 rounded-3"
 							onClick={decrease}>-</button>
 							<button
 							className="btn btn-outline-light mt-3 text-black border-2 rounded-3"
 							onClick={() => setCount(count + 1)}>+</button>
-						</div>
+						</div>						
+					</div>
+					<div className="d-flex flex-column bd-highlight mb-3">
+						<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">Total: $ {count * price}</span>
+						
+						<button
+							className="btn btn-info mt-3 text-black border-2 rounded-3">Add to Cart
+						</button>
 					</div>
 				</div>
 			</div>
@@ -55,6 +75,11 @@ const ProductTile = (props) => {
 	);
 };
 
+ProductTile.propTypes = { 
+	children: PropTypes.any,
+	description: PropTypes.string.isRequired,
+	price: PropTypes.number.isRequired
+}; 
 
 export default class ProductTileContainer extends Component {
 
@@ -79,3 +104,9 @@ export default class ProductTileContainer extends Component {
 		);
 	}
 }
+
+// ProductTileContainer.propTypes = {
+// 	children: PropTypes.any,
+// 	description: PropTypes.string,
+// 	price: PropTypes.number
+// };
