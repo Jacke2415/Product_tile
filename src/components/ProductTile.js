@@ -5,13 +5,24 @@ const ViewMore = (props) => {
 	const [count, setCount] = useState(0);
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState(0);
-
+	
 	useEffect(() => {
 		// After mounting!!
 		setDescription(props.description.slice(0,100));
 		setPrice(props.price)
 		console.log(props.price)
 	}, [props.description, props.price]);
+
+	const Modal = ({children}) => {
+		return(
+			<article className="modal is-open">
+				<div className="modal-container">
+					<button className="modal-close">X</button>
+					{children}
+				</div>
+			</article>
+		)
+	}
 
 	const decrease = () => {
 		if (count > 0) {
@@ -30,7 +41,7 @@ const ViewMore = (props) => {
 				/>
 				<div className="card-body bg-info bg-opacity-50">
 					<h5 className="card-title">Laptop HP</h5>
-					<p className="card-text text-align-justify">{ description + '...' } <a href="https://www.google.com">View more</a></p>					
+					<p className="card-text text-align-justify">{ description + '...' } {Modal}</p>					
 					{props.children}
 					<div className="d-flex bd-highlight mb-3">
 						<div className="me-auto p-2 bd-highlight">
