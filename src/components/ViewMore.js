@@ -21,7 +21,18 @@ const ViewMore = (props) => {
 
 	return (
 		<>
-			<div className="card d-flex bd-highlight mb-3" style={{ width: '25rem', height: '45rem' }}>
+			<div className="card d-flex bd-highlight mb-3" style={{ width: '50rem', height: '45rem' }}>
+				<div className ="btn-toolbar justify-content-between">
+					<div>
+						<h5 className ="card-title">Laptop HP</h5>
+					</div>
+					<div>
+					<button type="button" className ="btn">X</button>
+					</div>
+
+				</div>
+				
+				
 				<img
 					className='card-img-top'
 					src="https://m.media-amazon.com/images/I/81YRfW97J1L._AC_UY327_FMwebp_QL65_.jpg"
@@ -29,34 +40,35 @@ const ViewMore = (props) => {
 					width="400"
 				/>
 				<div className="card-body bg-info bg-opacity-50">
-					<h5 className="card-title">Laptop HP</h5>
-					<p className="card-text text-align-justify">{ description + '...' } <a href="https://www.google.com">View more</a></p>					
+					<p className="card-text text-align-justify">{ description } </p>					
 					{props.children}
-					<div className="d-flex bd-highlight mb-3">
-						<div className="me-auto p-2 bd-highlight">
-							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{ price }</span>
-							
-						</div>
-						<div className="p-2 bd-highlight">
+					<div className="d-flex bd-highlight justify-content-center">
+						<div className=" border-2 rounder-3">
+							<span 
+								className="btn btn-outline-light m-2 disabled text-black ">Total: ${ price*count }
+							</span>
+							<span 
+								className="btn btn-outline-light m-2 disabled text-black ">Price: ${ price }
+							</span>
 							<span
-							className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{count}</span>
+								className="btn  btn-info mb-1 disabled text-black ">Quantity: {count}
+							</span>
 							<button
-							className="btn btn-outline-light mt-3 text-black border-2 rounded-3"
-							onClick={decrease}>-</button>
+								className="btn btn-outline-light mb-1 text-black "
+								onClick={decrease}>-
+							</button>
 							<button
-							className="btn btn-outline-light mt-3 text-black border-2 rounded-3"
-							onClick={() => setCount(count + 1)}>+</button>
-						</div>						
-					</div>
-					<div className="d-flex bd-highlight mb-3">
-						<div className="d-flex flex-column me-auto bd-highlight">
-							<spam className= "btn">Total Price</spam>
-							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{count * price}</span>
-						</div>
-						<button
-							className="btn btn-outline-light mt-3 text-black border-2 rounded-3">Add to Cart
-						</button>
-					</div>
+								className="btn btn-outline-light mb-1 text-black "
+								onClick={() => setCount(count + 1)}>+
+							</button>
+							<button
+								className="btn btn-outline-light m-2 text-black ">Close
+							</button>
+							<button
+								className="btn btn-info m-2 text-black ">Add Item(s) To Cart
+							</button>							
+						</div>												
+					</div>					
 				</div>
 			</div>
 		</>

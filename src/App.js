@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import BubbleB from 'bubble-b';
 import HOrderComponent from './components/HOrderComponent';
 import ProductTileContainer from './components/ProductTile';
-/* import ViewMoreContainer from "./components/ViewMore"; */
+import ViewMoreContainer from "./components/ViewMore";
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
 	let price = 2456985;
 	let price2 = 1326580;
 
-	const ClothProductTile = HOrderComponent(ProductTileContainer, true, { productSize: [], description, price });
+	const ClothProductTile = HOrderComponent(ViewMoreContainer, true, { productSize: [], description, price });
 	//const ToysProductTile = HOrderComponent(ProductTileContainer, false, { description: description2, price: price2 });
 	/* const ClothViewMore = HOrderComponent(ViewMoreContainer, true, { productSize: [], description, price });
 	const ToysViewMore = HOrderComponent(ViewMoreContainer, false, { description: description2, price: price2 }); */
