@@ -21,7 +21,8 @@ function App() {
 			<header className="App-header">
 				<BubbleB bubblesNum={30} />
 				<div className='d-flex d-row gap-5 p-5'>
-					<ClothProductTile />
+					<ViewMoreContainer />
+					{/* <ClothProductTile /> */}
 					{/* <ToysProductTile /> */}
 					<ProductTileContainer
 					description={description2}

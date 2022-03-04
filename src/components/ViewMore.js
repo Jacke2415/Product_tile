@@ -22,17 +22,17 @@ const ViewMore = (props) => {
 	return (
 		<>
 			<div className="card d-flex bd-highlight mb-3" style={{ width: '50rem', height: '45rem' }}>
-				<div className ="btn-toolbar justify-content-between">
+				<div className="btn-toolbar justify-content-between">
 					<div>
-						<h5 className ="card-title">Laptop HP</h5>
+						<h5 className="card-title">Laptop HP</h5>
 					</div>
 					<div>
-					<button type="button" className ="btn">X</button>
+						<button type="button" className="btn">X</button>
 					</div>
 
 				</div>
-				
-				
+
+
 				<img
 					className='card-img-top'
 					src="https://m.media-amazon.com/images/I/81YRfW97J1L._AC_UY327_FMwebp_QL65_.jpg"
@@ -40,15 +40,15 @@ const ViewMore = (props) => {
 					width="400"
 				/>
 				<div className="card-body bg-info bg-opacity-50">
-					<p className="card-text text-align-justify">{ description } </p>					
+					<p className="card-text text-align-justify">{description} </p>
 					{props.children}
 					<div className="d-flex bd-highlight justify-content-center">
 						<div className=" border-2 rounder-3">
-							<span 
-								className="btn btn-outline-light m-2 disabled text-black ">Total: ${ price*count }
+							<span
+								className="btn btn-outline-light m-2 disabled text-black ">Total: ${price * count}
 							</span>
-							<span 
-								className="btn btn-outline-light m-2 disabled text-black ">Price: ${ price }
+							<span
+								className="btn btn-outline-light m-2 disabled text-black ">Price: ${price}
 							</span>
 							<span
 								className="btn  btn-info mb-1 disabled text-black ">Quantity: {count}
@@ -66,9 +66,9 @@ const ViewMore = (props) => {
 							</button>
 							<button
 								className="btn btn-info m-2 text-black ">Add Item(s) To Cart
-							</button>							
-						</div>												
-					</div>					
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</>
@@ -86,15 +86,35 @@ export default class ViewMoreContainer extends Component {
 	}
 
 	componentDidMount() {
-
+		// $(this.getDOMNode()).modal('show');
 	}
 
 	render() {
-		return(
+		return (
 			<div>
-				<span>Container</span> 
+				{/* <span>Container</span> 
 				<ViewMore description={this.props.description}
-				price={this.props.price} />
+				price={this.props.price} /> */}
+				{/* <!-- Modal --> */}
+				<div className="modal in" tabIndex={-1} role="dialog">
+					<div className="modal-dialog" role={"document"}>
+						<div className="modal-content">
+							<div className="modal-header">
+								<h5 className="modal-title">Modal title</h5>
+								<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div className="modal-body">
+								<p>Modal body text goes here.</p>
+							</div>
+							<div className="modal-footer">
+								<button type="button" className="btn btn-primary">Save changes</button>
+								<button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}
