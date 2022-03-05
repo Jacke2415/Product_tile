@@ -1,16 +1,39 @@
 // import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { Component, useEffect, useState } from "react";
-// productName, ProdDesc, productImage
+import ViewMoreContainer from "./ViewMore";
 
 const ProductTile = (props) => {
 
 	const [count, setCount] = useState(0);
 	const [description, setDescription] = useState('');
-
+	const [price, setPrice] = useState(0);
+	const [showModal, setShowModal] = useState(false);
+	
 	useEffect(() => {
+
 		// After mounting!!
-		setDescription(props.description.slice(0, 200));
-	}, [props.description]);
+		setDescription(props.description.slice(0,100));
+		setPrice(props.price)
+		console.log(props.price)
+	}, [props.description, props.price]);
+
+	const onClicViewMore = () => {
+		debugger;
+	  	setShowModal(true);
+	}
+	
+
+	const Modal = ({children}) => {
+		return(
+			<article className="modal is-open">
+				<div className="modal-container">
+					<button className="modal-close">X</button>
+					{children}
+				</div>
+			</article>
+		)
+	}
 
 	const decrease = () => {
 		if (count > 0) {
@@ -29,37 +52,65 @@ const ProductTile = (props) => {
 				/>
 				<div className="card-body bg-info bg-opacity-50">
 					<h5 className="card-title">Laptop HP</h5>
-					<p className="card-text text-align-justify">{description + '...'}</p>
-					{/* <Link to='https://pluralsight.com'>View more</Link> */}
+					<p className="card-text text-align-justify">{ description + '... View More' }</p>					
 					{props.children}
 					<div className="d-flex bd-highlight mb-3">
 						<div className="me-auto p-2 bd-highlight">
-							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">COP 2.743.897</span>
+							<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{ price }</span>
+							
 						</div>
 						<div className="p-2 bd-highlight">
 							<span
-							className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">{count}</span>
+							className="btn btn-info mt-3 disabled text-black border-2 rounded-3">{count}</span>
 							<button
 							className="btn btn-outline-light mt-3 text-black border-2 rounded-3"
 							onClick={decrease}>-</button>
 							<button
 							className="btn btn-outline-light mt-3 text-black border-2 rounded-3"
 							onClick={() => setCount(count + 1)}>+</button>
-						</div>
+						</div>						
+					</div>
+					<div className="d-flex flex-column bd-highlight mb-3">
+						<span className="btn btn-outline-light mt-3 disabled text-black border-2 rounded-3">Total: $ {count * price}</span>
+						
+						<button
+							className="btn btn-info mt-3 text-black border-2 rounded-3">Add to Cart
+						</button>
+						<button 
+						onClick={onClicViewMore}
+						type="button"
+						className="btn btn-link"
+						data-toggle="modal">
+							Launch demo modal
+						</button>
+
 					</div>
 				</div>
 			</div>
+
+			{showModal ? <div className="background-gray">
+				<ViewMoreContainer 
+				count={count} 
+				description={description}
+				price={price}
+				/>
+			</div> : null}
 		</>
 	);
 };
 
+ProductTile.propTypes = { 
+	children: PropTypes.any,
+	description: PropTypes.string.isRequired,
+	price: PropTypes.number.isRequired
+}; 
 
 export default class ProductTileContainer extends Component {
 
 	constructor() {
 		super();
 		this.state = {
-			desciption: ''
+			description: ''
 		};
 	}
 
@@ -71,8 +122,15 @@ export default class ProductTileContainer extends Component {
 		return(
 			<div>
 				<span>Container</span> 
-				<ProductTile description={this.props.description} />
+				<ProductTile description={this.props.description}
+				price={this.props.price} />
 			</div>
 		);
 	}
 }
+
+// ProductTileContainer.propTypes = {
+// 	children: PropTypes.any,
+// 	description: PropTypes.string,
+// 	price: PropTypes.number
+// };
