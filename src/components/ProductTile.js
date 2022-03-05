@@ -1,12 +1,14 @@
 // import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Component, useEffect, useState } from "react";
+import ViewMoreContainer from "./ViewMore";
 
 const ProductTile = (props) => {
 
 	const [count, setCount] = useState(0);
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState(0);
+	const [showModal, setShowModal] = useState(false);
 	
 	useEffect(() => {
 
@@ -15,6 +17,12 @@ const ProductTile = (props) => {
 		setPrice(props.price)
 		console.log(props.price)
 	}, [props.description, props.price]);
+
+	const onClicViewMore = () => {
+		debugger;
+	  	setShowModal(true);
+	}
+	
 
 	const Modal = ({children}) => {
 		return(
@@ -44,7 +52,7 @@ const ProductTile = (props) => {
 				/>
 				<div className="card-body bg-info bg-opacity-50">
 					<h5 className="card-title">Laptop HP</h5>
-					<p className="card-text text-align-justify">{ description + '...' } {Modal}</p>					
+					<p className="card-text text-align-justify">{ description + '... View More' }</p>					
 					{props.children}
 					<div className="d-flex bd-highlight mb-3">
 						<div className="me-auto p-2 bd-highlight">
@@ -68,9 +76,25 @@ const ProductTile = (props) => {
 						<button
 							className="btn btn-info mt-3 text-black border-2 rounded-3">Add to Cart
 						</button>
+						<button 
+						onClick={onClicViewMore}
+						type="button"
+						className="btn btn-link"
+						data-toggle="modal">
+							Launch demo modal
+						</button>
+
 					</div>
 				</div>
 			</div>
+
+			{showModal ? <div className="background-gray">
+				<ViewMoreContainer 
+				count={count} 
+				description={description}
+				price={price}
+				/>
+			</div> : null}
 		</>
 	);
 };
